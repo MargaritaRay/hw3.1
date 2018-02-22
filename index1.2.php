@@ -1,22 +1,55 @@
 <?php
-//собираем значение из полей ввода ($x = <input name="x">, $y = <input name="y">)
-$x = $_GET['x'];
-$y = $_GET['y'];
 
-//Собираем значение полученное из <select name="arithmetic"> (option)
-$oper = $_GET['arithmetic'];
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 
-//создаем уравнение которое будет иметь разные знаки, в зависимости от выбранного пользователем значения select
-if($oper == '+'){
-	$z = $x + $y;
-} elseif ($oper == '-'){
-	$z = $x - $y;
-} elseif ($oper == '*'){
-	$z = $x * $y;
-} elseif ($oper == '/'){
-	$z = $x / $y;
+/*
+if (isset($_GET['x'])){
+	$x = $_GET['x'];
+}else{
+	$x = null;
+}
+
+if (isset($_GET['y'])){
+	$y = $_GET['y'];
+}else{
+	$y = null;
+}
+
+if (isset($_GET['arithmetic'])){
+	$oper = $_GET['arithmetic'];
+}else{
+	$oper = null;
+}*/
+
+//если переменная была установленна, передаем ее, если не была установленна, передаем null
+
+if (isset($_GET['x']) || isset($_GET['y']) || isset($_GET['arithmetic'])){
+	$x = $_GET['x'];
+	$y = $_GET['y'];
+	$oper = $_GET['arithmetic'];
+}else{
+	$x = null;
+	$y = null;
+	$oper = null;
+}
+
+//пришлось это все записать в функцию поскольку на $z тоже нотик жаловался 
+
+function cal($x, $y, $oper){
+	if($oper == '+'){
+		return $x + $y;
+	}elseif ($oper == '-'){
+		return $x - $y;
+	} elseif ($oper == '*'){
+		return $x * $y;
+	} elseif ($oper == '/'){
+		return $x / $y;
+	}
 };
 
+$z = cal($x, $y, $oper);
 ?>
 <!doctype html>
 <html lang="en">
