@@ -37,17 +37,34 @@ if (isset($_GET['x']) || isset($_GET['y']) || isset($_GET['arithmetic'])){
 
 //пришлось это все записать в функцию поскольку на $z тоже нотик жаловался 
 
-function cal($x, $y, $oper){
+
+function calc($x, $y, $oper){
 	if($oper == '+'){
-		return $x + $y;
+		if($x == null || $y == null || $oper == null){
+			return 'Заполните все поля формы';
+		}else{
+			return  $x + $y;
+		}
 	}elseif ($oper == '-'){
-		return $x - $y;
+		if($x == null || $y == null || $oper == null){
+			return 'Заполните все поля формы';
+		}else{
+			return  $x - $y;
+		}
 	} elseif ($oper == '*'){
-		return $x * $y;
+		if($x == null || $y == null || $oper == null){
+			return 'Заполните все поля формы';
+		}else{
+			return  $x * $y;
+		}
 	} elseif ($oper == '/'){
-		return $x / $y;
+		if($x == null || $y == null || $oper == null){
+			return 'Заполните все поля формы';
+		}else{
+			return  $x / $y;
+		}
 	}
-};
+}
 
 $z = cal($x, $y, $oper);
 ?>
