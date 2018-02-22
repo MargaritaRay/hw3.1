@@ -5,25 +5,15 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 
 
-if (isset($_GET['x'])){
+if (isset($_GET['x']) || isset($_GET['y']) || isset($_GET['arithmetic'])){
 	$x = $_GET['x'];
-}else{
-	$x = null;
-}
-
-if (isset($_GET['y'])){
 	$y = $_GET['y'];
-}else{
-	$y = null;
-}
-
-if (isset($_GET['arithmetic'])){
 	$oper = $_GET['arithmetic'];
 }else{
+	$x = null;
+	$y = null;
 	$oper = null;
-}
-
-
+};
 
 function calc($x, $y, $oper){
 	if($x == null || $y == null || $oper == null){
