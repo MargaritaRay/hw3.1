@@ -33,7 +33,7 @@ if (isset($_GET['x']) || isset($_GET['y']) || isset($_GET['arithmetic'])){
 	$x = null;
 	$y = null;
 	$oper = null;
-}
+};
 
 //пришлось это все записать в функцию поскольку на $z тоже нотик жаловался 
 
